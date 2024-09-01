@@ -1,0 +1,34 @@
+*Inspector
+	LayerMask: 물리 효과를 구분하는 정수값
+	Sprite - Sprite Renderer
+		Order in Layer: 높을수록 앞에보임
+
+		Pixels Per Unit: 한칸에 몇 픽셀 넣을지 작성
+
+
+Project Settings - Phtsics2D - Default Contract Offset: 플레이어와 충돌 여백
+
+Animator: 애니메이션을 관리하는 컴포넌트
+	State: 애니메이션 상태를 관리하는 애니메이터 단위
+	Transition: 애니메이션 상태를 옮겨가는 통로
+	Has Exit Time: 애니매이션이 끝날때까지 대기
+
+Rigidbody
+	Linear Drag: 공기저항
+	Angular Drag: 회전저항
+
+Constraints - Freeze Rotation Z(X, Y): 물체 회전 여부(플레이어가 회전하지 않도록 막아줌)
+
+
+코딩
+
+velocity: 속도
+normalized: 벡터 크기를 1로 만든상태(단위벡터)
+Mathf: 수학 관련 함수를 제공하는 클래스
+RayCast: 오브젝트 검색을 위해 Ray를 쏘는 방식
+	DrawRay: Ray 그리기
+	RaycastHit
+	GetMask(): 레이어 이름에 해당하는 정수값을 리턴하는 함수
+
+Invoke():주어진 시간이 지난 뒤, 지정된 함수를 실행하는 함수
+	CancellInvoke(): 현재 작동중인 모든 Invoke함수를 멈추는 함수
