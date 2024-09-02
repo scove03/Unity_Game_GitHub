@@ -1,23 +1,28 @@
 *Inspector
 	LayerMask: 물리 효과를 구분하는 정수값
 	Sprite - Sprite Renderer
-		Order in Layer: 높을수록 앞에보임
-
+		Order in Layer: 높을수록 앞에보임 (Z위치를 조정해도 됨)
 		Pixels Per Unit: 한칸에 몇 픽셀 넣을지 작성
+
+		Sprite Editor - Custom physics shape: Collider을 상세조정 
+	Polygon Collider: Sprite Editor에서 정한 Collider 사용
 
 
 Project Settings - Phtsics2D - Default Contract Offset: 플레이어와 충돌 여백
+			-Layer Collision Matrix: 레이어와 충돌 여부 설정
 
 Animator: 애니메이션을 관리하는 컴포넌트
 	State: 애니메이션 상태를 관리하는 애니메이터 단위
 	Transition: 애니메이션 상태를 옮겨가는 통로
 	Has Exit Time: 애니매이션이 끝날때까지 대기
+	AnyState -> Exit: 현재 상태 상관없이 실행 후 복귀
 
 Rigidbody
 	Linear Drag: 공기저항
 	Angular Drag: 회전저항
 
 Constraints - Freeze Rotation Z(X, Y): 물체 회전 여부(플레이어가 회전하지 않도록 막아줌)
+
 
 
 코딩

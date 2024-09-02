@@ -5,15 +5,18 @@ using UnityEngine;
 public class EnemyMove : MonoBehaviour
 {
     Rigidbody2D rigid;
-    public int nextMove;
     SpriteRenderer spriteRenderer;
     Animator anim;
+    CapsuleCollider2D capsuleCollider;
+
+    public int nextMove;
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         EnemyMoveing();
+        capsuleCollider = GetComponent<CapsuleCollider2D>();
 
         Invoke("EnemyMoveing", 5);
     }
@@ -60,5 +63,26 @@ public class EnemyMove : MonoBehaviour
         spriteRenderer.flipX = nextMove == 1;
         CancelInvoke();
         Invoke("EnemyMoveing", 2);
+    }
+
+    //몬스터가 데미지 입었을때 함수
+    public void OnDamaged()
+    {
+        //색 흐리게 변경
+        spriteRenderer.color = new Color(1, 1, 1, 0.4f);
+        //방향 전환
+        spriteRenderer.flipX= true;
+        //물체 충돌 무시
+        capsuleCollider.enabled = false;
+        //데미지 모션점프
+        rigid.AddForce(Vector2.up * 5, ForceMode2D.Impulse);
+
+        //삭제
+        Invoke("DeActive", 5);
+    }
+
+    void DeActive()
+    {
+        gameObject.SetActive(false);
     }
 }
